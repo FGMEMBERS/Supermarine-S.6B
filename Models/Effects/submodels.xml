@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <submodel>
+    <name>LHwake</name>
+    <model>Aircraft/Supermarine-S.6B/Models/Effects/wake.xml</model>
+    <trigger>gear/gear[0]/wow</trigger>
+    <speed>0</speed>
+    <repeat>true</repeat>
+    <delay>0.1</delay>
+    <count>-1</count>
+    <x-offset>7.0</x-offset>
+    <y-offset>-4.5</y-offset>
+    <z-offset>-4.0</z-offset>
+    <buoyancy>32</buoyancy>
+    <life>5.0</life>
+    <wind>false</wind>
+    <eda>100</eda>
+  </submodel>
+
+  <submodel>
+    <name>RHwake</name>
+    <model>Aircraft/Supermarine-S.6B/Models/Effects/wake.xml</model>
+    <trigger>gear/gear[1]/wow</trigger>
+    <speed>0</speed>
+    <repeat>true</repeat>
+    <delay>0.1</delay>
+    <count>-1</count>
+    <x-offset>7.0</x-offset>
+    <y-offset>4.5</y-offset>
+    <z-offset>-4.0</z-offset>
+    <buoyancy>32</buoyancy>
+    <life>5.0</life>
+    <wind>false</wind>
+    <eda>100</eda>
+  </submodel>
+
+</PropertyList>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+ 
+    <author>Emmanuel BARANGER (3D), Pierre GEOFFROY (FDM)</author>
+    <aircraft-version>0.1</aircraft-version>
+    <status>0.1 Alpha</status>
+   
+    <fuel-fraction>0.8</fuel-fraction>
+  
+    <type type="string">seaplane</type>
+  
+    <startup>
+      <splash-texture>Aircraft/Supermarine-S.6B/s6b-splash.rgb</splash-texture>
+    </startup>
+  
+    <sound>
+      <path>Aircraft/Supermarine-S.6B/Sounds/s6b-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Supermarine-S.6B/Models/s6b.xml</path>
+    </model>
+
+<!--
+    <submodels>
+      <serviceable>true</serviceable>
+      <path>Aircraft/Supermarine-S.6B/Models/Effects/submodels.xml</path>
+    </submodels>
+-->
+
+    <help>
+      <title>Macchi Castoldi M.C. 72</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close canopy</desc>
+      </key>
+    </help>
+
+  </sim>
+
+  <yasim>
+    <pa100>
+      <pilot-lb>180</pilot-lb>
+    </pa100>
+  </yasim>
+
+  <engines>
+    <engine>
+      <rpm type="double">700</rpm>
+    </engine>
+  </engines>
+
+  <input>
+    <keyboard include="Nasal/s6b-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <s6b>
+      <file>Aircraft/Supermarine-S.6B/Nasal/doors.nas</file>
+    </s6b>
+  </nasal>
+
+</PropertyList>
+
