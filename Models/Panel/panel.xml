@@ -46,8 +46,8 @@
     <path>Aircraft/Supermarine-S.6B/Models/Panel/Instruments/rpm/rpm.xml</path>
     <offsets>
       <x-m>  0.069 </x-m>
-      <y-m> -0.161 </y-m>
-      <z-m> -0.048 </z-m>
+      <y-m> -0.160 </y-m>
+      <z-m> -0.047 </z-m>
     </offsets>
   </model>
 
