@@ -24,15 +24,8 @@
       <path archive="y">Aircraft/Supermarine-S.6B/Models/s6b.xml</path>
     </model>
 
-<!--
-    <submodels>
-      <serviceable>true</serviceable>
-      <path>Aircraft/Supermarine-S.6B/Models/Effects/submodels.xml</path>
-    </submodels>
--->
-
     <help>
-      <title>Macchi Castoldi M.C. 72</title>
+      <title>Supermarine S6 b</title>
       <key>
         <name>d</name>
         <desc>Open/Close canopy</desc>
