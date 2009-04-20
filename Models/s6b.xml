@@ -1,41 +1,117 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
 
   <path>s6b.ac</path>
 
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/Supermarine-S.6B/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
   <animation>
     <!-- Objets opaques -->
     <object-name>fuselage</object-name>
-    <object-name>interieur</object-name>
     <object-name>helice</object-name>
     <object-name>bol</object-name>
     <object-name>aile</object-name>
     <object-name>aile2</object-name>
     <object-name>derive</object-name>
-    <object-name>floteurG</object-name>
-    <object-name>floteurD</object-name>
+    <object-name>floteurs</object-name>
     <object-name>aileronG</object-name>
     <object-name>aileronD</object-name>
     <object-name>direction</object-name>
     <object-name>profondeur</object-name>
     <object-name>poteau</object-name>
     <object-name>tourvitre</object-name>
-
+    <object-name>trous</object-name>
 
     <!-- Objets transparents -->
-    <object-name>vitre</object-name>
+    <object-name>vitres</object-name>
     <object-name>cables</object-name>
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
   </animation>
 
   <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
     <type>noshadow</type>
-    <object-name>vitre</object-name>
+    <object-name>vitres</object-name>
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
   </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+    <object-name>trous</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+<!--
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+-->
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+<!--
+    <shininess>
+      <shininess-prop>shininess</shininess-prop>
+    </shininess>
+-->
+  </animation>
+
+  <!-- Interieur -->
+  <model>
+    <name>Pilote</name>
+    <path>Aircraft/Supermarine-S.6B/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
 
   <!-- Trainée gauche -->
   <model>
@@ -44,9 +120,9 @@
       <x-m>  2.875 </x-m>
       <y-m> -1.160 </y-m>
       <z-m> -0.982 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -45.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -45 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
 
@@ -57,9 +133,9 @@
       <x-m>  2.875 </x-m>
       <y-m>  1.160 </y-m>
       <z-m> -0.982 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -45.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -45 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
 
@@ -70,9 +146,9 @@
       <x-m> -4.065 </x-m>
       <y-m> -1.160 </y-m>
       <z-m> -1.484 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -90.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -90 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
 
@@ -83,9 +159,9 @@
       <x-m> -4.065 </x-m>
       <y-m>  1.160 </y-m>
       <z-m> -1.484 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -90.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -90 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
 
@@ -96,9 +172,9 @@
       <x-m> -0.759 </x-m>
       <y-m> -1.160 </y-m>
       <z-m> -1.309 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -90.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -90 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
 
@@ -109,44 +185,11 @@
       <x-m> -0.759 </x-m>
       <y-m>  1.160 </y-m>
       <z-m> -1.309 </z-m>
-      <roll-deg>    0.000 </roll-deg>
-      <pitch-deg> -90.000 </pitch-deg>
-      <heading-deg> 0.000 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -90 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model> 
-
-  <!-- Pilote -->
-  <model>
-    <name>Pilote</name>
-    <path>Aircraft/Supermarine-S.6B/Models/Pilot/pilot.xml</path>
-    <offsets>
-      <x-m>  0.307 </x-m>
-      <y-m>  0.022 </y-m>
-      <z-m> -0.129 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Tableau de bord -->
-  <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Panel/panel.xml</path>
-    <offsets>
-      <x-m> -0.117 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.540 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Pilote invisible depuis le cockpit -->
-  <animation>
-    <type>select</type>
-    <object-name>Pilote</object-name>
-    <condition>
-      <greater-than>
-        <property>sim/current-view/view-number</property>
-        <value>0</value>
-      </greater-than>
-    </condition>
-  </animation>
 
   <!-- L'hélice --> 
   <animation>
@@ -163,7 +206,7 @@
     <object-name>propdisc</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>/engines/engine[0]/rpm</property>
         <value>1500</value>
       </greater-than>
     </condition>
@@ -175,11 +218,11 @@
     <condition>
     <and>
       <greater-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>/engines/engine[0]/rpm</property>
         <value>600.000</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>/engines/engine[0]/rpm</property>
         <value>1500.001</value>
       </less-than>
     </and>
@@ -191,7 +234,7 @@
     <object-name>helice</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[0]/rpm</property>
+        <property>/engines/engine[0]/rpm</property>
 	<value>1500</value>
       </less-than>
     </condition>
@@ -200,7 +243,7 @@
   <animation>
     <type>spin</type>
     <object-name>HeliceComplete</object-name>
-    <property>engines/engine[0]/rpm</property>
+    <property>/engines/engine[0]/rpm</property>
     <factor> 1 </factor>
     <center>
       <x-m> -3.075 </x-m>
@@ -208,9 +251,9 @@
       <z-m>  0.358 </z-m>
     </center>
     <axis>
-      <x> -1.000 </x>
-      <y>  0.000 </y>
-      <z>  0.000 </z>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
@@ -218,7 +261,7 @@
   <animation>
     <type>rotate</type>
     <object-name>profondeur</object-name>
-    <property>controls/flight/elevator</property>
+    <property>/controls/flight/elevator</property>
     <factor>11</factor>
     <center>
       <x-m> 3.913 </x-m>
@@ -226,9 +269,9 @@
       <z-m> 0.395 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 
@@ -236,7 +279,7 @@
   <animation>
     <type>rotate</type>
     <object-name>direction</object-name>
-    <property>controls/flight/rudder</property>
+    <property>/controls/flight/rudder</property>
     <factor>20</factor>
     <axis>
       <x1-m> 3.806 </x1-m>
@@ -252,7 +295,7 @@
   <animation>
     <type>rotate</type>
     <object-name>aileronG</object-name>
-    <property>surface-positions/left-aileron-pos-norm</property>
+    <property>/surface-positions/left-aileron-pos-norm</property>
     <factor>15.0</factor>
     <center>
       <x-m> -0.088 </x-m>
@@ -260,9 +303,9 @@
       <z-m> -0.151 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
     </axis>
   </animation> 
 
@@ -270,7 +313,7 @@
   <animation>
     <type>rotate</type>
     <object-name>aileronD</object-name>
-    <property>surface-positions/right-aileron-pos-norm</property>
+    <property>/surface-positions/right-aileron-pos-norm</property>
     <factor>15.0</factor>
     <center>
       <x-m> -0.088 </x-m>
@@ -278,18 +321,23 @@
       <z-m> -0.151 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
     </axis>
   </animation> 
 
   <!-- Canopy -->
   <animation>
-    <type>rotate</type>
+    <name>Canopy</name>
     <object-name>tourvitre</object-name>
-    <object-name>vitre</object-name>
-    <property>instrumentation/doors/crew/position-norm</property>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Canopy</object-name>
+    <property>/instrumentation/doors/crew/position-norm</property>
     <factor>-45</factor>
     <center>
       <x-m> -0.142 </x-m>
@@ -297,9 +345,9 @@
       <z-m>  0.740 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 

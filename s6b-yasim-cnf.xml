@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="s6b-base.xml">
+
+  <sim>
+
+    <description>Supermarine S6B (YASim)</description>
+    <flight-model>yasim</flight-model>
+    <aero>s6b-yasim</aero>
+
+  </sim>
+  
+</PropertyList>

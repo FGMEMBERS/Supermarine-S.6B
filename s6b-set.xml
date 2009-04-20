@@ -1,7 +1,7 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- <PropertyList include="s6b-jsbsim-set.xml"> -->
-<PropertyList include="s6b-yasim-set.xml">
+<!-- <PropertyList include="s6b-jsbsim-cnf.xml"> -->
+<PropertyList include="s6b-yasim-cnf.xml">
 
   <sim>
     <description>Supermarine S6B</description>

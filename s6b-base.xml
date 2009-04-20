@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
 
@@ -13,7 +13,7 @@
     <type type="string">seaplane</type>
   
     <startup>
-      <splash-texture>Aircraft/Supermarine-S.6B/s6b-splash.rgb</splash-texture>
+      <splash-texture>Aircraft/Supermarine-S.6B/s6b-splash.png</splash-texture>
     </startup>
   
     <sound>
@@ -22,7 +22,22 @@
 
     <model>
       <path archive="y">Aircraft/Supermarine-S.6B/Models/s6b.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
     </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+      </generic>
+    </multiplay>
 
     <help>
       <title>Supermarine S6 b</title>
@@ -31,6 +46,8 @@
         <desc>Open/Close canopy</desc>
       </key>
     </help>
+
+    <menubar include="Dialogs/s6b-menu.xml"/>
 
   </sim>
 
@@ -53,6 +70,8 @@
   <nasal>
     <s6b>
       <file>Aircraft/Supermarine-S.6B/Nasal/doors.nas</file>
+      <file>Aircraft/Supermarine-S.6B/Nasal/light.nas</file>
+      <file>Aircraft/Supermarine-S.6B/Nasal/liveries.nas</file>
     </s6b>
   </nasal>
 
