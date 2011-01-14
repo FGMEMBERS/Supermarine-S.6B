@@ -7,9 +7,23 @@
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Supermarine-S.6B/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
 
@@ -28,25 +42,12 @@
     <object-name>profondeur</object-name>
     <object-name>poteau</object-name>
     <object-name>tourvitre</object-name>
+
     <object-name>trous</object-name>
 
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
     <object-name>cables</object-name>
-    <object-name>propblur</object-name>
-    <object-name>propdisc</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>glass_shader.png</texture>
-    <object-name>vitres</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
   </animation>
@@ -66,6 +67,7 @@
     <object-name>profondeur</object-name>
     <object-name>poteau</object-name>
     <object-name>tourvitre</object-name>
+
     <object-name>trous</object-name>
 
     <property-base>sim/model/livery</property-base>
@@ -102,6 +104,37 @@
 -->
   </animation>
 
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </animation>
+
   <!-- Interieur -->
   <model>
     <name>Pilote</name>
@@ -113,9 +146,47 @@
     </offsets>
   </model>
 
+  <!-- Cranking effects -->
+  <!-- Left -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.285 </x-m>
+      <y-m> -0.374 </y-m>
+      <z-m>  0.542 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.109 </x-m>
+      <y-m> -0.375 </y-m>
+      <z-m>  0.544 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.285 </x-m>
+      <y-m>  0.374 </y-m>
+      <z-m>  0.542 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.109 </x-m>
+      <y-m>  0.375 </y-m>
+      <z-m>  0.544 </z-m>
+    </offsets>
+  </model>
+
   <!-- Trainée gauche -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/wakeG.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/wakeG.xml</path>
     <offsets>
       <x-m>  2.875 </x-m>
       <y-m> -1.160 </y-m>
@@ -128,7 +199,7 @@
 
   <!-- Trainée droite -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/wakeD.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/wakeD.xml</path>
     <offsets>
       <x-m>  2.875 </x-m>
       <y-m>  1.160 </y-m>
@@ -141,7 +212,7 @@
 
   <!-- Eclaboussures, avant gauche -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/jetG.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetG.xml</path>
     <offsets>
       <x-m> -4.065 </x-m>
       <y-m> -1.160 </y-m>
@@ -154,7 +225,7 @@
 
   <!-- Eclaboussures, avant droite -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/jetD.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetD.xml</path>
     <offsets>
       <x-m> -4.065 </x-m>
       <y-m>  1.160 </y-m>
@@ -167,7 +238,7 @@
 
   <!-- Eclaboussures, centre gauche -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/jetmG.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmG.xml</path>
     <offsets>
       <x-m> -0.759 </x-m>
       <y-m> -1.160 </y-m>
@@ -180,7 +251,7 @@
 
   <!-- Eclaboussures, centre droite -->
   <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/jetmD.xml</path>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmD.xml</path>
     <offsets>
       <x-m> -0.759 </x-m>
       <y-m>  1.160 </y-m>
@@ -261,8 +332,8 @@
   <animation>
     <type>rotate</type>
     <object-name>profondeur</object-name>
-    <property>/controls/flight/elevator</property>
-    <factor>11</factor>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 11 </factor>
     <center>
       <x-m> 3.913 </x-m>
       <y-m> 0.000 </y-m>
@@ -279,8 +350,8 @@
   <animation>
     <type>rotate</type>
     <object-name>direction</object-name>
-    <property>/controls/flight/rudder</property>
-    <factor>20</factor>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
     <axis>
       <x1-m> 3.806 </x1-m>
       <y1-m> 0.000 </y1-m>
@@ -296,9 +367,9 @@
     <type>rotate</type>
     <object-name>aileronG</object-name>
     <property>/surface-positions/left-aileron-pos-norm</property>
-    <factor>15.0</factor>
+    <factor> 15 </factor>
     <center>
-      <x-m> -0.088 </x-m>
+      <x-m> -0.041 </x-m>
       <y-m> -2.903 </y-m>
       <z-m> -0.151 </z-m>
     </center>
@@ -309,14 +380,13 @@
     </axis>
   </animation> 
 
-  <!-- Animations des ailerons -->
   <animation>
     <type>rotate</type>
     <object-name>aileronD</object-name>
     <property>/surface-positions/right-aileron-pos-norm</property>
-    <factor>15.0</factor>
+    <factor> 15 </factor>
     <center>
-      <x-m> -0.088 </x-m>
+      <x-m> -0.041 </x-m>
       <y-m>  2.903 </y-m>
       <z-m> -0.151 </z-m>
     </center>

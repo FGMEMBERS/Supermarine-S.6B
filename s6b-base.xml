@@ -4,7 +4,7 @@
 
   <sim include="Nasal/views.xml">
  
-    <author>Emmanuel BARANGER (3D), Pierre GEOFFROY (FDM)</author>
+    <author>Emmanuel BARANGER (3D/FDM), Pierre GEOFFROY (FDM)</author>
     <aircraft-version>0.1</aircraft-version>
     <status>0.1 Alpha</status>
    
@@ -29,13 +29,17 @@
 
     <multiplay>
       <chat_display>1</chat_display>
-      <generic>
-        <int type="int">0</int>
-        <int type="int">0</int>
-        <int type="int">0</int>
-        <int type="int">0</int>
-        <int type="int">0</int>
-        <int type="int">0</int>
+      <generic> 
+        <int type="int">  0 </int>  <!-- 0 immat -->
+        <int type="int">  0 </int>  <!-- 1 immat -->
+        <int type="int">  0 </int>  <!-- 2 immat -->
+        <int type="int">  0 </int>  <!-- 3 immat -->
+        <int type="int">  0 </int>  <!-- 4 immat -->
+        <int type="int">  0 </int>  <!-- 5 immat -->
+        <int type="bool"> 0 </int>  <!-- 6 smoke -->
+        <int type="int">  0 </int>  <!-- 7 color -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>
       </generic>
     </multiplay>
 
@@ -68,8 +72,10 @@
   </input>
  
   <nasal>
-    <s6b>
+    <doors>
       <file>Aircraft/Supermarine-S.6B/Nasal/doors.nas</file>
+    </doors>
+    <s6b>
       <file>Aircraft/Supermarine-S.6B/Nasal/light.nas</file>
       <file>Aircraft/Supermarine-S.6B/Nasal/liveries.nas</file>
     </s6b>

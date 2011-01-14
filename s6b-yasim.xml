@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Supermarine S6B - 2007 BARANGER Emmanuel 
-				    GEOFFROY Pierre -->
+<!-- Supermarine S6B - 2007 BARANGER Emmanuel
+                            GEOFFROY Pierre
+               2011 Updated BARANGER Emmanuel with Melchior's script
+ 
+     sources      : http://en.wikipedia.org/wiki/Supermarine_S.6B
+
+     Wingspan     : 30 ft 00 in    ( 9.14 m     )
+     Lenght       : 28 ft 10 in    ( 8.79 m     ) 
+     Height       : 12 ft 30 in    ( 3.73 m     )
+     Weight       : 4590 lb        ( 2082 kg    )
+     Engines      : Rolls Royce R. ( 2350 ch    )
+     Max speed    :  354 kt        ( 655.8 km/h ) (world speed record)
+-->
+
 
 <airplane mass="4590">
 
@@ -21,15 +33,14 @@
 
   <cockpit x="-0.398" y="0" z="0.658" />
 
-  <fuselage ax="3.257" ay="0" az="0.358" bx="-4.394" by="0" bz="0.559"  width="0.8" taper="0.75" midpoint="0.25" />
+  <fuselage ax="2.894" ay="0" az="0.358" bx="-4.394" by="0" bz="0.559"  width="0.8" taper="0.40" midpoint="0.25" />
 
+<!-- incidence="1.5"  -->
   <wing x="0.643" y="0.312" z="-0.148" 
         chord="1.818" 
-        taper="0.5" 
-        length="4.086"
-        dihedral="0" 
-        incidence="1.5" 
-        camber="0.03">
+        length="4.262"
+        taper="0.8" 
+        camber="0.006">
         <stall width="4" aoa="20" peak="1.5"/>
         <flap1  start="0.319" end="0.925" lift="1.1" drag="1.2"/>
         <control-input split="true" control="FLAP1" axis="/controls/flight/aileron"/>
@@ -38,10 +49,10 @@
         <control-output prop="/surface-positions/right-aileron-pos-norm" side="right" control="FLAP1"/>
   </wing>
   
-  <hstab x="-3.592" y="0.139" z="0.511"  
+  <hstab x="-3.729" y="0" z="0.396"  
          chord="1.188" 
-         taper="0.7" 
-         length="1.132">
+         length="1.282"
+         taper="0.6">
          <stall width="4" aoa="18" peak="1.5"/>
          <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
          <control-input control="FLAP0" axis="/controls/flight/elevator"/>
@@ -49,11 +60,11 @@
          <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0"/>
   </hstab>
 
-  <vstab x="-3.605" y="0" z="0.056" 
-         sweep="15" 
-         chord="2.0" 
-         taper="0.2" 
-         length="1.552" >
+  <vstab x="-3.490" y="0" z="0.416" 
+         chord="1.824" 
+         length="1.65"
+         sweep="22" 
+         taper="0.2">
          <stall width="3" aoa="14" peak="1.5" />
          <flap0  start="0" end="1"  lift="1.6" drag="1.2"/>
          <control-input control="FLAP0" axis="/controls/flight/rudder" invert="true"/>
@@ -61,33 +72,38 @@
          <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" min="1" max="-1"/>
   </vstab>
 
-  <!-- Rolls Royce R. (2350 ch)  
-    Poids (éstimé) : 510 kg -> 1124.3 lb  -->
-  <propeller x="1.784" 
-             y="0.0" 
-             z="0.337" 
-             mass="1424" 
-             radius="1.2"
+  <!-- Engines   source            : http://en.wikipedia.org/wiki/Rolls-Royce_R
+
+                 name              : Rolls Royce R.
+                 type              : 12-cylinder, supercharged, liquid-cooled, 60° "V", aircraft piston engine
+                 power cruise      : 2350 hp at 3200 rpm
+                 weight            :    1640 lb ( 744 kg )
+                 displacement      : 2239 cu in (  36.7 L)
+                 compression       : 6:1
+  -->
+  <propeller x="1.784" y="0.0" z="0.337" 
+             mass="1640" 
+             radius="1.4"
              moment="55"
              cruise-speed="305"
              cruise-alt="5000"
              cruise-power="1800" 
              cruise-rpm="2070"
-	       takeoff-power="2350" 
-	       takeoff-rpm="2300"
+             takeoff-power="2350" 
+             takeoff-rpm="2300"
              gear-ratio="0.72">
+             <actionpt x="2.994" y="0.0" z="0.358"/>
              <piston-engine eng-rpm="3200" 
                             eng-power="2350"
                             displacement="2239" 
-                            compression="7"/>
-             <actionpt x="3.075" y="0.0" z="0.358"/>
+                            compression="6.1"/>
              <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
              <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
              <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
              <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
   </propeller>
 
-  <!-- Points déffinissant les flotteurs -->
+  <!-- floats -->
   <!-- Central -->
   <gear x="0.466" y="1.157" z="-1.730" 
         compression="1.5" 
@@ -142,7 +158,7 @@
         spring-factor-not-planing="0.7">
   </gear>
 
-  <!-- Arrière -->
+  <!-- Arriere -->
   <gear x="-2.955" y="1.157" z="-1.198" 
         compression="1.8" 
         spring = "8" 
