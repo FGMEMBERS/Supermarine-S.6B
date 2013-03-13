@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -15,7 +15,7 @@
   <model>
     <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/alt/altimeter.xml</path>
     <offsets>
-      <x-m>  0.067 </x-m>
+      <x-m>  0.063 </x-m>
       <y-m> -0.090 </y-m>
       <z-m> -0.019 </z-m>
     </offsets>
@@ -25,7 +25,7 @@
   <model>
     <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/asi/asi.xml</path>
     <offsets>
-      <x-m>  0.067 </x-m>
+      <x-m>  0.062 </x-m>
       <y-m>  0.000 </y-m>
       <z-m> -0.020 </z-m>
     </offsets>
@@ -35,7 +35,7 @@
   <model>
     <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/fuel/fuel.xml</path>
     <offsets>
-      <x-m>  0.069 </x-m>
+      <x-m>  0.062 </x-m>
       <y-m>  0.085 </y-m>
       <z-m> -0.019 </z-m>
     </offsets>
@@ -45,9 +45,29 @@
   <model>
     <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/rpm/rpm.xml</path>
     <offsets>
-      <x-m>  0.069 </x-m>
+      <x-m>  0.063 </x-m>
       <y-m> -0.160 </y-m>
       <z-m> -0.047 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Switchs -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/Switch/instr-lights.xml</path>
+    <offsets>
+      <x-m>  0.065 </x-m>
+      <y-m>  0.140 </y-m>
+      <z-m> -0.060 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Switchs -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Interior/Panel/Instruments/Switch/nav-lights.xml</path>
+    <offsets>
+      <x-m>  0.065 </x-m>
+      <y-m>  0.173 </y-m>
+      <z-m> -0.060 </z-m>
     </offsets>
   </model>
 
