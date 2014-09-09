@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>s6b.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/Supermarine-S.6B/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+
+    <object-name>trous</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>vitres</object-name>
+    <object-name>cables</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+
+    <object-name>trous</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-combined-deferred</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+    <object-name>aile</object-name>
+    <object-name>aile2</object-name>
+    <object-name>derive</object-name>
+    <object-name>floteurs</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>poteau</object-name>
+    <object-name>tourvitre</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>vitres</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </effect>
+
+  <!-- Interieur -->
+  <model>
+    <name>Interieur</name>
+    <path>Aircraft/Supermarine-S.6B/Models/Interior/interior.xml</path>
+  </model>
+
+  <!-- For Rembrandt -->
+  <animation>
+    <type>noshadow</type>
+    <object-name>Interieur</object-name>
+  </animation>
+  
+  <!-- Une ombre pour OSG -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/shadow.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.560 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Cranking effects -->
+  <!-- Left -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.285 </x-m>
+      <y-m> -0.374 </y-m>
+      <z-m>  0.542 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.109 </x-m>
+      <y-m> -0.375 </y-m>
+      <z-m>  0.544 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.285 </x-m>
+      <y-m>  0.374 </y-m>
+      <z-m>  0.542 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.109 </x-m>
+      <y-m>  0.375 </y-m>
+      <z-m>  0.544 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Trainée gauche -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/wakeG.xml</path>
+    <offsets>
+      <x-m>  2.875 </x-m>
+      <y-m> -1.160 </y-m>
+      <z-m> -0.982 </z-m>
+      <pitch-deg> -45 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- Trainée droite -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/wakeD.xml</path>
+    <offsets>
+      <x-m>  2.875 </x-m>
+      <y-m>  1.160 </y-m>
+      <z-m> -0.982 </z-m>
+      <pitch-deg> -45 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- Eclaboussures, avant gauche -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetG.xml</path>
+    <offsets>
+      <x-m> -4.065 </x-m>
+      <y-m> -1.160 </y-m>
+      <z-m> -1.484 </z-m>
+      <pitch-deg> -90 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- Eclaboussures, avant droite -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetD.xml</path>
+    <offsets>
+      <x-m> -4.065 </x-m>
+      <y-m>  1.160 </y-m>
+      <z-m> -1.484 </z-m>
+      <pitch-deg> -90 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- Eclaboussures, centre gauche -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmG.xml</path>
+    <offsets>
+      <x-m> -0.759 </x-m>
+      <y-m> -1.160 </y-m>
+      <z-m> -1.309 </z-m>
+      <pitch-deg> -90 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- Eclaboussures, centre droite -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmD.xml</path>
+    <offsets>
+      <x-m> -0.759 </x-m>
+      <y-m>  1.160 </y-m>
+      <z-m> -1.309 </z-m>
+      <pitch-deg> -90 </pitch-deg>
+    </offsets>
+  </model> 
+
+  <!-- L'hélice --> 
+  <animation>
+    <name>HeliceComplete</name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>helice</object-name>
+    <object-name>bol</object-name>
+  </animation>
+
+  <!-- Séléction de l'objet visible en fonction des rpm -->
+  <animation>
+    <type>select</type>
+    <object-name>propdisc</object-name>
+    <condition>
+      <greater-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value>1500</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propblur</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>/engines/engine[0]/rpm</property>
+          <value>600.000</value>
+        </greater-than>
+        <less-than>
+          <property>/engines/engine[0]/rpm</property>
+          <value>1500.001</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>helice</object-name>
+    <condition>
+      <less-than>
+        <property>/engines/engine[0]/rpm</property>
+	<value>1500</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>HeliceComplete</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 100 </value>
+      </greater-than>
+    </condition>
+    <property>/engines/engine[0]/rpm</property>
+    <factor> 1 </factor>
+    <center>
+      <x-m> -3.075 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.358 </z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Gouverne de profondeur -->
+  <animation>
+    <type>rotate</type>
+    <object-name>profondeur</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 11 </factor>
+    <center>
+      <x-m> 3.913 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.395 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Gouverne de direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>direction</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> 3.806 </x1-m>
+      <y1-m> 0.000 </y1-m>
+      <z1-m> 0.559 </z1-m>
+      <x2-m> 3.767 </x2-m>
+      <y2-m> 0.000 </y2-m>
+      <z2-m> 1.820 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Animations des ailerons -->
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronG</object-name>
+    <property>/surface-positions/left-aileron-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> -0.041 </x-m>
+      <y-m> -2.903 </y-m>
+      <z-m> -0.151 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> 
+
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronD</object-name>
+    <property>/surface-positions/right-aileron-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> -0.041 </x-m>
+      <y-m>  2.903 </y-m>
+      <z-m> -0.151 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> 
+
+  <!-- Canopy -->
+  <animation>
+    <name>Canopy</name>
+    <object-name>tourvitre</object-name>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Canopy</object-name>
+    <property>/instrumentation/doors/crew/position-norm</property>
+    <factor>-45</factor>
+    <center>
+      <x-m> -0.142 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.740 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Ajout des effets lumineux -->
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m> 3.74388 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 1.80438 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m> -0.75266 </x-m>
+      <y-m> -4.55650 </y-m>
+      <z-m> -0.15079 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -0.73266 </x-m>
+      <y-m> -4.55650 </y-m>
+      <z-m> -0.15079 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/lights/GreenLight.xml</path>
+    <offsets>
+      <x-m> -0.75266 </x-m>
+      <y-m>  4.55650 </y-m>
+      <z-m> -0.15079 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Supermarine-S.6B/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -0.73266 </x-m>
+      <y-m>  4.55650 </y-m>
+      <z-m> -0.15079 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

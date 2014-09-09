@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+ 
+    <author>Emmanuel BARANGER (3D/FDM), Pierre GEOFFROY (FDM)</author>
+    <aircraft-version>0.1</aircraft-version>
+    <status>0.1 Alpha</status>
+   
+    <fuel-fraction>0.8</fuel-fraction>
+  
+    <type type="string">seaplane</type>
+  
+    <startup>
+      <splash-texture>Aircraft/Supermarine-S.6B/s6b-splash.png</splash-texture>
+    </startup>
+  
+    <sound>
+      <path>Aircraft/Supermarine-S.6B/Sounds/s6b-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Supermarine-S.6B/Models/s6b.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                           <!--  0 immat -->
+        <int type="int" n="1">  0 </int>                                           <!--  1 immat -->
+        <int type="int" n="2">  0 </int>                                           <!--  2 immat -->
+        <int type="int" n="3">  0 </int>                                           <!--  3 immat -->
+        <int type="int" n="4">  0 </int>                                           <!--  4 immat -->
+        <int type="int" n="5">  0 </int>                                           <!--  5 immat -->
+        <int type="bool" n="6" alias="/sim/model/hide-winglets"> 1 </int>           <!--  8 Winglets -->
+        <int type="int" n="10" alias="/controls/armament/trigger">0</int>           <!-- 10 reserved for bombable mode -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>
+        <float n="2" alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3" alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <float n="4" alias="/engines/engine[0]/n1" />
+        <float n="7" alias="/controls/engines/engine[0]/throttle" />
+        <string n="9" type="string" />                                              <!-- string[9] reserved for bombable mode -->
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Supermarine S6 b</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close canopy</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/s6b-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <lighting>
+      <nav-lights type="bool">false</nav-lights>
+      <instrument-lights type="bool">false</instrument-lights>
+      <landing-lights type="bool">false</landing-lights>
+    </lighting>
+  </controls>
+
+  <yasim>
+    <s6b>
+      <pilot-lb>180</pilot-lb>
+    </s6b>
+  </yasim>
+
+  <engines>
+    <engine>
+      <rpm type="double">0</rpm>
+    </engine>
+  </engines>
+
+  <input>
+    <keyboard include="Nasal/s6b-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <doors>
+      <file>Aircraft/Supermarine-S.6B/Nasal/doors.nas</file>
+    </doors>
+    <s6b>
+      <file>Aircraft/Supermarine-S.6B/Nasal/light.nas</file>
+      <file>Aircraft/Supermarine-S.6B/Nasal/liveries.nas</file>
+    </s6b>
+  </nasal>
+
+</PropertyList>
