@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <lighting>
+    <nav-lights type="bool">false</nav-lights>
+    <instrument-lights type="bool">false</instrument-lights>
+    <landing-lights type="bool">false</landing-lights>
+  </lighting>
+  
+</PropertyList>

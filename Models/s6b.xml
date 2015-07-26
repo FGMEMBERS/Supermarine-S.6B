@@ -13,9 +13,9 @@
       var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
       var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
       
-      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
-      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
-    
+      var crew_door = self.getNode("sim/model/door-positions/crew/position-norm", 1);
+      var passenger_door = self.getNode("sim/model/door-positions/passenger/position-norm", 1);
+      
       crew_door.alias(float_0);
       passenger_door.alias(float_1);
     </load>
@@ -78,18 +78,10 @@
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
   </animation>
 
   <effect>
     <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
-    <condition>
-      <not><property>sim/rendering/rembrandt/enabled</property></not>
-    </condition>
     <object-name>fuselage</object-name>
     <object-name>helice</object-name>
     <object-name>bol</object-name>
@@ -104,64 +96,25 @@
     <object-name>poteau</object-name>
     <object-name>tourvitre</object-name>
   </effect>
-
-  <effect>
-    <inherits-from>Effects/model-combined-deferred</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
-    <object-name>fuselage</object-name>
-    <object-name>helice</object-name>
-    <object-name>bol</object-name>
-    <object-name>aile</object-name>
-    <object-name>aile2</object-name>
-    <object-name>derive</object-name>
-    <object-name>floteurs</object-name>
-    <object-name>aileronG</object-name>
-    <object-name>aileronD</object-name>
-    <object-name>direction</object-name>
-    <object-name>profondeur</object-name>
-    <object-name>poteau</object-name>
-    <object-name>tourvitre</object-name>
-  </effect>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitres</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
-    <object-name>propblur</object-name>
-    <object-name>propdisc</object-name>
-  </animation>
 
   <!-- working for Rembrandt -->
   <effect>
+    <inherits-from>Aircraft/Supermarine-S.6B/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitres</object-name>
+  </effect>
+  
+  <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
     <object-name>vitres</object-name>
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
   </effect>
-
+  
   <!-- Interieur -->
   <model>
-    <name>Interieur</name>
     <path>Aircraft/Supermarine-S.6B/Models/Interior/interior.xml</path>
   </model>
 
-  <!-- For Rembrandt -->
-  <animation>
-    <type>noshadow</type>
-    <object-name>Interieur</object-name>
-  </animation>
-  
   <!-- Une ombre pour OSG -->
   <model>
     <path>Aircraft/Supermarine-S.6B/Models/shadow.xml</path>
@@ -232,50 +185,6 @@
     </offsets>
   </model> 
 
-  <!-- Eclaboussures, avant gauche -->
-  <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetG.xml</path>
-    <offsets>
-      <x-m> -4.065 </x-m>
-      <y-m> -1.160 </y-m>
-      <z-m> -1.484 </z-m>
-      <pitch-deg> -90 </pitch-deg>
-    </offsets>
-  </model> 
-
-  <!-- Eclaboussures, avant droite -->
-  <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetD.xml</path>
-    <offsets>
-      <x-m> -4.065 </x-m>
-      <y-m>  1.160 </y-m>
-      <z-m> -1.484 </z-m>
-      <pitch-deg> -90 </pitch-deg>
-    </offsets>
-  </model> 
-
-  <!-- Eclaboussures, centre gauche -->
-  <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmG.xml</path>
-    <offsets>
-      <x-m> -0.759 </x-m>
-      <y-m> -1.160 </y-m>
-      <z-m> -1.309 </z-m>
-      <pitch-deg> -90 </pitch-deg>
-    </offsets>
-  </model> 
-
-  <!-- Eclaboussures, centre droite -->
-  <model>
-    <path>Aircraft/Supermarine-S.6B/Models/Effects/waves/jetmD.xml</path>
-    <offsets>
-      <x-m> -0.759 </x-m>
-      <y-m>  1.160 </y-m>
-      <z-m> -1.309 </z-m>
-      <pitch-deg> -90 </pitch-deg>
-    </offsets>
-  </model> 
-
   <!-- L'hélice --> 
   <animation>
     <name>HeliceComplete</name>
@@ -320,7 +229,7 @@
     <condition>
       <less-than>
         <property>/engines/engine[0]/rpm</property>
-	<value>1500</value>
+        <value>1500</value>
       </less-than>
     </condition>
   </animation>
@@ -353,11 +262,11 @@
     <type>rotate</type>
     <object-name>profondeur</object-name>
     <property>surface-positions/elevator-pos-norm</property>
-    <factor> 11 </factor>
+    <factor> 15 </factor>
     <center>
-      <x-m> 3.913 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.395 </z-m>
+      <x-m> 3.92644 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 0.39511 </z-m>
     </center>
     <axis>
       <x> 0 </x>
@@ -371,14 +280,14 @@
     <type>rotate</type>
     <object-name>direction</object-name>
     <property>surface-positions/rudder-pos-norm</property>
-    <factor> 20 </factor>
+    <factor> 15 </factor>
     <axis>
-      <x1-m> 3.806 </x1-m>
-      <y1-m> 0.000 </y1-m>
-      <z1-m> 0.559 </z1-m>
-      <x2-m> 3.767 </x2-m>
-      <y2-m> 0.000 </y2-m>
-      <z2-m> 1.820 </z2-m>
+      <x1-m> 3.85313 </x1-m>
+      <y1-m> 0.00000 </y1-m>
+      <z1-m> 0.55914 </z1-m>
+      <x2-m> 3.80442 </x2-m>
+      <y2-m> 0.00000 </y2-m>
+      <z2-m> 1.70884 </z2-m>
     </axis>
   </animation>
 
@@ -425,10 +334,24 @@
   </animation>
 
   <animation>
+    <type>pick</type>
+    <object-name>Canopy</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
     <type>rotate</type>
     <object-name>Canopy</object-name>
-    <property>/instrumentation/doors/crew/position-norm</property>
-    <factor>-45</factor>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <factor> -45 </factor>
     <center>
       <x-m> -0.142 </x-m>
       <y-m>  0.000 </y-m>
