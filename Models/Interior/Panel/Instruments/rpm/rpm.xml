@@ -12,27 +12,12 @@
     <object-name>vitre</object-name>
   </animation>
 
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitre</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitre</object-name>
-  </animation>
-
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
+    <inherits-from>Aircraft/Supermarine-S.6B/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
   </effect>
-
+  
   <animation>
     <type>material</type>
     <object-name>face</object-name>
@@ -63,11 +48,6 @@
       <entry><ind> 4500 </ind><dep> -30 </dep></entry>
       <entry><ind> 5000 </ind><dep> -60 </dep></entry>
     </interpolation>
-     <center> 
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </center>
     <axis> 
       <x> 1 </x>
       <y> 0 </y>

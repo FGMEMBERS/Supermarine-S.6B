@@ -2,7 +2,8 @@
 
 <!-- Supermarine S6B - 2007 BARANGER Emmanuel
                             GEOFFROY Pierre
-               2011 Updated BARANGER Emmanuel with Melchior's script
+             Updated - 2011 BARANGER Emmanuel with Melchior's script
+             Updated - 2015 BARANGER Emmanuel
  
      sources      : http://en.wikipedia.org/wiki/Supermarine_S.6B
 
@@ -13,9 +14,7 @@
      Engines      : Rolls Royce R. ( 2350 ch    )
      Max speed    :  354 kt        ( 655.8 km/h ) (world speed record)
 -->
-
-
-<airplane mass="4590">
+<airplane mass="4590" version="YASIM_VERSION_CURRENT">
 
   <approach speed="60" aoa="6" fuel="0.2">
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
@@ -108,7 +107,21 @@
   </propeller>
 
   <!-- floats -->
-  <!-- Central -->
+  <!-- Avant gauche 0 -->
+  <gear x="3.775" y="1.157" z="-1.751" 
+        compression="1.2" 
+        spring = "15" 
+        sfric = "0.8" 
+        dfric = "0.7" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="1" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="15" 
+        spring-factor-not-planing="0.7">
+  </gear>
+    
+  <!-- Central gauche 1 -->
   <gear x="0.466" y="1.157" z="-1.730" 
         compression="1.5" 
         spring = "15" 
@@ -122,47 +135,7 @@
         spring-factor-not-planing="0.25">
   </gear>
 
-  <gear x="0.466" y="-1.157" z="-1.730" 
-        compression="1.5" 
-        spring = "15" 
-        sfric = "0.85"
-        dfric = "0.75" 
-        ignored-by-solver="0"
-        on-water="1" 
-        on-solid="1" 
-        reduce-friction-by-extension="1.15"
-        speed-planing="25" 
-        spring-factor-not-planing="0.25">
-  </gear>
-
-  <!-- Avant -->
-  <gear x="3.775" y="1.157" z="-1.751" 
-        compression="1.2" 
-        spring = "15" 
-        sfric = "0.8" 
-        dfric = "0.7" 
-        ignored-by-solver="0"
-        on-water="1" 
-        on-solid="1" 
-        reduce-friction-by-extension="1.15"
-        speed-planing="15" 
-        spring-factor-not-planing="0.7">
-  </gear>
-
-  <gear x="3.775" y="-1.157" z="-1.751" 
-        compression="1.2" 
-        spring = "15" 
-        sfric = "0.8" 
-        dfric = "0.7" 
-        ignored-by-solver="0"
-        on-water="1" 
-        on-solid="1" 
-        reduce-friction-by-extension="1.15"
-        speed-planing="15" 
-        spring-factor-not-planing="0.7">
-  </gear>
-
-  <!-- Arriere -->
+  <!-- Arriere  gauche 2-->
   <gear x="-2.955" y="1.157" z="-1.198" 
         compression="1.8" 
         spring = "8" 
@@ -176,6 +149,35 @@
         spring-factor-not-planing="3">
   </gear>
   
+  <!-- Avant droit 3 -->
+  <gear x="3.775" y="-1.157" z="-1.751" 
+        compression="1.2" 
+        spring = "15" 
+        sfric = "0.8" 
+        dfric = "0.7" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="1" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="15" 
+        spring-factor-not-planing="0.7">
+  </gear>
+    
+  <!-- Central droit 4 -->
+  <gear x="0.466" y="-1.157" z="-1.730" 
+        compression="1.5" 
+        spring = "15" 
+        sfric = "0.85"
+        dfric = "0.75" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="1" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="25" 
+        spring-factor-not-planing="0.25">
+  </gear>
+
+  <!-- Arrière droit 5 -->
   <gear x="-2.955" y="-1.157" z="-1.198" 
         compression="1.8" 
         spring = "8" 
@@ -190,8 +192,8 @@
   </gear>
 
   <!-- Fuel  -->  
-  <tank x="1.5" y="0" z="-0.7" capacity="470" />
-  <tank x="0.0" y="0" z="-0.7" capacity="470" />
+  <tank x=" 1.5" y="0" z="-0.7" capacity="470" />
+  <tank x=" 0.0" y="0" z="-0.7" capacity="470" />
   <tank x="-1.5" y="0" z="-0.7" capacity="349" />
   
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>

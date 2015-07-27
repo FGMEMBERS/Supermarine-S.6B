@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "transparent" rgb 0.547091 0.565624 0.595981 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 64 trans 0.85
+MATERIAL "transparent" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 64 trans 0.85
 OBJECT world
 kids 7
 OBJECT poly
@@ -10,7 +10,7 @@ data 6
 button
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 20
 -0.000552 -0.048402 0.00614
 -0.000552 -0.052274 0.004943
@@ -144,7 +144,7 @@ data 4
 face
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 17
 0.001041 -0.00006 -0.037696
 0.001041 0.01375 -0.034827
@@ -268,7 +268,7 @@ data 4
 fond
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 128
 0.004029 -0.00011 -0.034846
 0.004029 -0.00695 -0.034177
@@ -1079,7 +1079,7 @@ data 7
 needle1
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 14
 0.002227 0.0297 0.000648
 0.002227 0.03162 -0.00024
@@ -1173,7 +1173,7 @@ data 7
 needle2
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 14
 0.002742 0.01067 -0.002113
 0.002742 0.01663 -0.000297
@@ -1267,7 +1267,7 @@ data 7
 needle3
 texture "altimeter.png"
 texrep 1.000000 1.000000
-crease 45.000001
+crease 180.000005
 numvert 18
 0.001555 0.01701 0.00023
 0.001555 0.03163 -0.00024
@@ -1384,7 +1384,7 @@ name "vitre"
 loc 0 0 -0
 data 5
 vitre
-crease 30.000001
+crease 180.000005
 numvert 34
 0.001802 0 -0
 0.003304 0.030003 -0.020047
